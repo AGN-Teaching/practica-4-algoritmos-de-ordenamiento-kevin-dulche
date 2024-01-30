@@ -8,23 +8,31 @@
 using namespace std;
 using namespace std::chrono;
 
-void intercambiar(long long A[], long long x, long long y) {
-    long long aux = A[x];
+int* copiar_arreglo(int A[], int n) {
+    int *aux = new int[n];
+    for (int i = 0; i < n; i++) {
+        aux[i] = A[i];
+    }
+    return aux;
+}
+
+void intercambiar(int A[], int x, int y) {
+    int aux = A[x];
     A[x] = A[y];
     A[y] = aux;
 }
 
-void generarArregloAleatorio(long long A[], long long n) {
-    for (long long i = 0; i < n; i++) {
+void generarArregloAleatorio(int A[], int n) {
+    for (int i = 0; i < n; i++) {
         A[i] = rand() % (10 * n) + 1;
     }
 }
 
-void merge(long long A[], long long inicio, long long medio, long long fin) {
-    long long *aux = new long long[fin - inicio + 1];
-    long long i = inicio;     // índice de la primera mitad
-    long long j = medio + 1;  // índice de la segunda mitad
-    long long h = 0;
+void merge(int A[], int inicio, int medio, int fin) {
+    int *aux = new int[fin - inicio + 1];
+    int i = inicio;     // índice de la primera mitad
+    int j = medio + 1;  // índice de la segunda mitad
+    int h = 0;
 
     // Se recorren ambos subarreglos y se van combinando sus
     // elementos ordenadamente hasta que se haya recorrido
@@ -58,33 +66,33 @@ void merge(long long A[], long long inicio, long long medio, long long fin) {
     }
     
     h = 0;
-    for (long long k = inicio; k <= fin; k++) {
+    for (int k = inicio; k <= fin; k++) {
         A[k] = aux[h];
         h += 1;
     }
     delete [] aux;
 }
 
-void merge_sort(long long A[], long long inicio, long long fin) {
+void merge_sort(int A[], int inicio, int fin) {
     if (inicio < fin) {
-        long long medio = (inicio + fin) / 2;
+        int medio = (inicio + fin) / 2;
         merge_sort(A, inicio, medio);
         merge_sort(A, medio + 1, fin);
         merge(A, inicio, medio, fin);
     }
 }
 
-long long partition(long long A[], long long p, long long r) {
+int partition(int A[], int p, int r) {
     // A[r] es el registro elegido cuya llave será el pivote
-    long long pivote = A[r];
+    int pivote = A[r];
     
     // Indica el índice del último registro cuyo valor
     // es menor a pivote
-    long long ultimo = p - 1;
+    int ultimo = p - 1;
 
     // Se agrupan los elementos menores a pivote en las primeras
     // posiciones de A
-    for (long long i = p; i < r; i++) {
+    for (int i = p; i < r; i++) {
         if (A[i] < pivote) {
             ultimo += 1;
             intercambiar(A, ultimo, i);
@@ -96,18 +104,18 @@ long long partition(long long A[], long long p, long long r) {
     return ultimo + 1;
 }
 
-void quicksort(long long A[], long long p, long long r) {
+void quicksort(int A[], int p, int r) {
     if (p < r) {
-        long long q = partition(A, p, r);
+        int q = partition(A, p, r);
         quicksort(A, p, q - 1);
         quicksort(A, q + 1, r);
     }
 }
 
-void insertion_sort(long long A[], long long n) {
-    for (long long j = 1; j < n; j++) {
-        long long k = A[j];
-        long long i = j - 1;
+void insertion_sort(int A[], int n) {
+    for (int j = 1; j < n; j++) {
+        int k = A[j];
+        int i = j - 1;
  
         // Se mueven los elementos de A[0..i-1], que son
         // mayores que k, a una posición hacia la derecha
@@ -121,13 +129,13 @@ void insertion_sort(long long A[], long long n) {
 }
 
 
-void selection_sort(long long A[], long long n) {
-    for (long long j = 0; j < n-1; j++) {
-        long long menor = j;
+void selection_sort(int A[], int n) {
+    for (int j = 0; j < n-1; j++) {
+        int menor = j;
  
         // Encuentra el elemento minimo del subarreglo
         // que no está ordenado
-        for (long long i = j+1; i < n; i++) {
+        for (int i = j+1; i < n; i++) {
             if (A[i] < A[menor]) {
                 menor = i;
             }
@@ -137,11 +145,11 @@ void selection_sort(long long A[], long long n) {
 }
 
 
-void bubblesort(long long A[], long long n) {
-    for (long long i = 0; i < n-1; i++) {
+void bubblesort(int A[], int n) {
+    for (int i = 0; i < n-1; i++) {
       
         // Los primeros i elementos ya estan ordenados
-        for (long long j = n-1; j > i; j--) {
+        for (int j = n-1; j > i; j--) {
             if (A[j] < A[j-1]) {
                 intercambiar(A, j, j-1);
             }
@@ -149,33 +157,88 @@ void bubblesort(long long A[], long long n) {
     }
 }
 
-void ejecutarAlgoritmo(long long A[], long long B[], long long n, char algoritmo) {
+duration<double> ordenar_insertion_sort(int* A, int TAM_ARREGLO) {
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+    insertion_sort(A, TAM_ARREGLO);
+    high_resolution_clock::time_point fin = high_resolution_clock::now();
+    duration<double> tiempo = duration_cast<duration<double> >(fin - inicio);
+    return tiempo;
+}
+
+
+duration<double> ordenar_selection_sort(int* A, int TAM_ARREGLO) {
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+    selection_sort(A, TAM_ARREGLO);
+    high_resolution_clock::time_point fin = high_resolution_clock::now();
+    duration<double> tiempo = duration_cast<duration<double> >(fin - inicio);
+    return tiempo;
+}
+
+
+duration<double> ordenar_bubblesort(int* A, int TAM_ARREGLO) {
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+    bubblesort(A, TAM_ARREGLO);
+    high_resolution_clock::time_point fin = high_resolution_clock::now();
+    duration<double> tiempo = duration_cast<duration<double> >(fin - inicio);
+    return tiempo;
+}
+
+duration<double> ordenar_merge_sort(int* A, int TAM_ARREGLO) {
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+    merge_sort(A, 0, TAM_ARREGLO-1);
+    high_resolution_clock::time_point fin = high_resolution_clock::now();
+    duration<double> tiempo = duration_cast<duration<double> >(fin - inicio);
+    return tiempo;
+}
+
+
+duration<double> ordenar_quicksort(int* A, int TAM_ARREGLO) {
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+    quicksort(A, 0, TAM_ARREGLO-1);
+    high_resolution_clock::time_point fin = high_resolution_clock::now();
+    duration<double> tiempo = duration_cast<duration<double> >(fin - inicio);
+    return tiempo;
+}
+
+duration<double> ejecutarAlgoritmo(int A[], int n, char algoritmo) {
+    int *aux;
+    duration<double> tiempo;
     switch (algoritmo) {
         case 'i':
-            insertion_sort(B, n);
+            aux = copiar_arreglo(A, n);
+            tiempo = ordenar_insertion_sort(aux, n);
+            delete [] aux;
+            return tiempo;
             break;
         case 's':
-            selection_sort(B, n);
+            aux = copiar_arreglo(A, n);
+            tiempo = ordenar_selection_sort(aux, n);
+            delete [] aux;
+            return tiempo;
             break;
         case 'b':
-            bubblesort(B, n);
+            aux = copiar_arreglo(A, n);
+            tiempo = ordenar_bubblesort(aux, n);
+            delete [] aux;
+            return tiempo;
             break;
         case 'm':
-            merge_sort(B, 0, n - 1);
+            aux = copiar_arreglo(A, n);
+            tiempo = ordenar_merge_sort(aux, n);
+            delete [] aux;
+            return tiempo;
             break;
         case 'q':
-            quicksort(B, 0, n - 1);
+            aux = copiar_arreglo(A, n);
+            tiempo = ordenar_quicksort(aux, n);
+            delete [] aux;
+            return tiempo;
             break;
         default:
-            cout << "Algoritmo no reconocido." << endl;
+            return tiempo;
             break;
     }
 }
 
-long long* copiar_arreglo(long long A[], long long n) {
-    long long *aux = new long long[n];
-    for (long long i = 0; i < n; i++) {
-        aux[i] = A[i];
-    }
-    return aux;
-}
+
+

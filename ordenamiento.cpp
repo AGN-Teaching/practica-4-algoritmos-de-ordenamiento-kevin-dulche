@@ -16,8 +16,8 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    long long n = atoi(argv[1]);
-    long long m = atoi(argv[2]);
+    int n = atoi(argv[1]);
+    int m = atoi(argv[2]);
     string nombreArchivo = argv[1];
 
     srand(static_cast<unsigned>(time(nullptr)));
@@ -27,28 +27,24 @@ int main(int argc, char *argv[]) {
     archivoSalida << "# Ejecución" << "\t\t\t  Insertion Sort" << "\t\t\t  Selection Sort" << "\t\t\t\t Bubble Sort" << "\t\t\t\t  Merge Sort" << "\t\t\t\t   Quicksort" << endl;
 
 
-    for (long long i = 1; i <= m; i++) {
-        long long *A = new long long[n];
-        long long *B = new long long[n];
+    for (int i = 1; i <= m; i++) {
+        duration<double> tiempo;
+        int *A = new int[n];
+
         generarArregloAleatorio(A, n);
 
         archivoSalida << setw(10) << i;
 
         for (char algoritmo : {'i', 's', 'b', 'm', 'q'}) {
-            long long *C = copiar_arreglo(A, n);
-            high_resolution_clock::time_point inicio = high_resolution_clock::now();
-            ejecutarAlgoritmo(C, B, n, algoritmo);
-            high_resolution_clock::time_point fin = high_resolution_clock::now();
-            duration<double> tiempo = duration_cast<duration<double>>(fin - inicio);
+            
+            tiempo = ejecutarAlgoritmo(A, n, algoritmo);
 
             archivoSalida << "\t\t\t" << setw(15) << tiempo.count() << "s";
 
-            delete[] C;
         }
 
         archivoSalida << endl;
         delete[] A;
-        delete[] B;
     }
 
     archivoSalida.close();
