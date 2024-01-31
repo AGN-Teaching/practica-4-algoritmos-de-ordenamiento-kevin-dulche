@@ -10,9 +10,31 @@
 ./ordenamiento 100000 30
 ./ordenamiento 500000 30
 ./ordenamiento 1000000 30
+
 ./ordenamiento 5000000 30
 ./ordenamiento 10000000 30
 ./ordenamiento 50000000 30
 ./ordenamiento 100000000 30
 ./ordenamiento 500000000 30
 ./ordenamiento 1000000000 30
+
+
+python3 txt_a_csv.py 5_tiempos.txt
+python3 txt_a_csv.py 10_tiempos.txt
+python3 txt_a_csv.py 50_tiempos.txt
+python3 txt_a_csv.py 100_tiempos.txt
+python3 txt_a_csv.py 500_tiempos.txt
+python3 txt_a_csv.py 1000_tiempos.txt
+python3 txt_a_csv.py 5000_tiempos.txt
+python3 txt_a_csv.py 10000_tiempos.txt
+python3 txt_a_csv.py 50000_tiempos.txt
+python3 txt_a_csv.py 100000_tiempos.txt
+python3 txt_a_csv.py 500000_tiempos.txt
+python3 txt_a_csv.py 1000000_tiempos.txt
+
+python3 txt_a_csv.py 5000000_tiempos.txt
+python3 txt_a_csv.py 10000000_tiempos.txt
+python3 txt_a_csv.py 50000000_tiempos.txt
+python3 txt_a_csv.py 100000000_tiempos.txt
+python3 txt_a_csv.py 500000000_tiempos.txt
+python3 txt_a_csv.py 1000000000_tiempos.txt

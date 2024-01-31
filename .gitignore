@@ -1,0 +1,4 @@
+analisis/analisis/
+*.txt
+!comandos.txt
+!analisis/*.txt
