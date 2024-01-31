@@ -27,31 +27,31 @@ En esta práctica se pondrá a prueba los algoritmos de ordenamiento **Merge sor
 
 **1. Desempeño Relativo**:
 
-        Los algoritmos muestran variabilidad en su desempeño relativo en términos de desviación estándar. Por ejemplo, para n=5, Quicksort (QS) tiene una desviación estándar significativamente más baja que los demás.
+- Los algoritmos muestran variabilidad en su desempeño relativo en términos de desviación estándar. Por ejemplo, para n=5, Quicksort (QS) tiene una desviación estándar significativamente más baja que los demás.
 
 **2. Tamaño de Muestra Impacta en el Rendimiento:**
 
-        La desviación estándar tiende a disminuir a medida que el tamaño de muestra aumenta para algunos algoritmos. Por ejemplo, para Merge Sort (MS), la desviación estándar disminuye de 2.74e-07 (n=50) a 4.26e-06 (n=1000).
+- La desviación estándar tiende a disminuir a medida que el tamaño de muestra aumenta para algunos algoritmos. Por ejemplo, para Merge Sort (MS), la desviación estándar disminuye de 2.74e-07 (n=50) a 4.26e-06 (n=1000).
 
 **3. Comparación entre Algoritmos:**
 
-        En general, Quicksort (QS) muestra desviaciones estándar más bajas en comparación con otros algoritmos en varios tamaños de muestra. Bubble Sort (BS) tiende a tener desviaciones estándar más altas.
+- En general, Quicksort (QS) muestra desviaciones estándar más bajas en comparación con otros algoritmos en varios tamaños de muestra. Bubble Sort (BS) tiende a tener desviaciones estándar más altas.
 
 **4. Identificación de Algoritmos Robustos:**
 
-        Quicksort (QS) podría considerarse más robusto, ya que tiene desviaciones estándar consistentemente bajas en comparación con otros algoritmos.
+- Quicksort (QS) podría considerarse más robusto, ya que tiene desviaciones estándar consistentemente bajas en comparación con otros algoritmos.
 
 **5. Tendencias Generales:**
 
-        Para algunos algoritmos, como Merge Sort (MS) y QuickSort (QS), la desviación estándar tiende a estabilizarse o disminuir a medida que el tamaño de muestra aumenta.
+- Para algunos algoritmos, como Merge Sort (MS) y QuickSort (QS), la desviación estándar tiende a estabilizarse o disminuir a medida que el tamaño de muestra aumenta.
 
 **6. Identificación de Puntos de Quiebre:**
 
-        No hay puntos de quiebre evidentes en los que la desviación estándar aumente drásticamente para un tamaño de muestra específico en esta tabla.
+- No hay puntos de quiebre evidentes en los que la desviación estándar aumente drásticamente para un tamaño de muestra específico en esta tabla.
 
 **7. Consideraciones Prácticas:**
 
-        Aunque Quicksort (QS) parece ser el algoritmo más consistente en este conjunto de datos, la elección del algoritmo debe considerar otros factores prácticos, como la complejidad temporal y espacial, dependiendo del contexto de uso.
+- Aunque Quicksort (QS) parece ser el algoritmo más consistente en este conjunto de datos, la elección del algoritmo debe considerar otros factores prácticos, como la complejidad temporal y espacial, dependiendo del contexto de uso.
 
 ---
 ### Tabla de tiempo promedio de ejecución
@@ -73,25 +73,25 @@ En esta práctica se pondrá a prueba los algoritmos de ordenamiento **Merge sor
 
 **1. Comparación de Rendimiento:**
 
-        En términos generales, se puede observar que los tiempos promedio de ejecución varían para cada algoritmo en función del tamaño de la muestra (n).
-        Quicksort (QS) sigue siendo generalmente más rápido en comparación con los demás algoritmos.
+- En términos generales, se puede observar que los tiempos promedio de ejecución varían para cada algoritmo en función del tamaño de la muestra (n).
+- Quicksort (QS) sigue siendo generalmente más rápido en comparación con los demás algoritmos.
 
 **2. Efecto del Tamaño de Muestra:**
 
-        A medida que el tamaño de la muestra aumenta, los tiempos de ejecución promedio también aumentan para todos los algoritmos. Esto es esperado, ya que el tiempo de ejecución suele depender del tamaño de la entrada.
+- A medida que el tamaño de la muestra aumenta, los tiempos de ejecución promedio también aumentan para todos los algoritmos. Esto es esperado, ya que el tiempo de ejecución suele depender del tamaño de la entrada.
 
 **3. Identificación de Algoritmos Eficientes:**
 
-        Quicksort (QS) continúa mostrando tiempos de ejecución promedio más bajos en comparación con los demás algoritmos en todos los tamaños de muestra.
-        Bubble Sort (BS) tiende a tener tiempos de ejecución más altos, especialmente a medida que el tamaño de la muestra aumenta.
+- Quicksort (QS) continúa mostrando tiempos de ejecución promedio más bajos en comparación con los demás algoritmos en todos los tamaños de muestra.
+- Bubble Sort (BS) tiende a tener tiempos de ejecución más altos, especialmente a medida que el tamaño de la muestra aumenta.
 
 **4. Comparación con Desviación Estándar:**
 
-        Puedes comparar estos resultados con la tabla de desviación estándar para obtener una comprensión completa del rendimiento y la consistencia de cada algoritmo.
+- Puedes comparar estos resultados con la tabla de desviación estándar para obtener una comprensión completa del rendimiento y la consistencia de cada algoritmo.
 
 **5. Consideraciones Prácticas:**
 
-        Aunque Quicksort (QS) muestra tiempos de ejecución promedio más bajos, es importante considerar otros factores, como la complejidad temporal y espacial, así como el comportamiento en escenarios específicos.
+- Aunque Quicksort (QS) muestra tiempos de ejecución promedio más bajos, es importante considerar otros factores, como la complejidad temporal y espacial, así como el comportamiento en escenarios específicos.
 
 # Ejecución del programa
 
