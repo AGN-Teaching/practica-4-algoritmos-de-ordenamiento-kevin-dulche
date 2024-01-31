@@ -1,4 +1,4 @@
-Ejecución,Insertion Sort,Selection Sort,Bubble Sort,Merge Sort,Quicksort
+No. Ejecución,Insertion Sort(segundos),Selection Sort(segundos),Bubble Sort(segundos),Merge Sort(segundos),Quicksort(segundos)
 1,0.0263884,0.0393621,0.123437,0.00102533,0.000721427
 2,0.0243421,0.0374341,0.119246,0.00105419,0.000849469
 3,0.0256083,0.0396513,0.12371,0.00104373,0.00071939
