@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Cargar el archivo CSV
-df = pd.read_csv('./desviacion.csv')
+df = pd.read_csv('./promedio.csv')
 
 # Convertir el DataFrame a formato Markdown
 tabla_markdown = df.to_markdown(index=False)

@@ -42,12 +42,20 @@ for i, algoritmo in enumerate(algoritmos):
     ax.axhline(df[algoritmo].mean() + df[algoritmo].std(), color='orange', linestyle='dashed', linewidth=2, label='+1 Desviación Estándar')
     ax.axhline(df[algoritmo].mean() - df[algoritmo].std(), color='orange', linestyle='dashed', linewidth=2, label='-1 Desviación Estándar')
     ax.set_title(f'{algoritmo}\nDesviación Estándar: {df[algoritmo].std():.2e}\nPromedio: {df[algoritmo].mean():.2e}')
-    ax.set_xlabel('Ejecución')
+    ax.set_xlabel('Veces ejecutadas')
     ax.set_ylabel('Tiempo de Ejecución')
     ax.legend()
     print(f'\n{algoritmo}\nDesviación Estándar: {df[algoritmo].std():.2e}\nPromedio: {df[algoritmo].mean():.2e}')
 
-axs[1,2].axis("off")
+# Añadir una sexta gráfica para comparar todos los algoritmos
+ax_all_algorithms = axs[1, 2]
+for algoritmo in algoritmos:
+    ax_all_algorithms.plot(df['Ejecución'], df[algoritmo], label=algoritmo)
+
+ax_all_algorithms.set_title('Comparación de Todos los Algoritmos')
+ax_all_algorithms.set_xlabel('Veces ejecutadas')
+ax_all_algorithms.set_ylabel('Tiempo de Ejecución')
+ax_all_algorithms.legend()
 
 # Ajustar márgenes
 plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1, wspace=0.4, hspace=0.4)

@@ -9,3 +9,4 @@ python3 graficar.py ./csv/10000_tiempos.csv
 python3 graficar.py ./csv/50000_tiempos.csv
 python3 graficar.py ./csv/100000_tiempos.csv
 python3 graficar.py ./csv/500000_tiempos.csv
+python3 graficar.py ./csv/1000000_tiempos.csv
