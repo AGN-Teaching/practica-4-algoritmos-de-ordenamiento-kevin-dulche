@@ -1,4 +1,4 @@
-n,IS,SS,BS,MS,QS
+No. Repeticiones,IS(segundos),SS(segundos),BS(segundos),MS(segundos),QS(segundos)
 5,1.05e-07,1.21e-07,1.22e-07,2.34e-07,1.34e-07
 10,2.17e-07,3.52e-07,3.68e-07,5.28e-07,3.33e-07
 50,1.61e-06,2.99e-06,5.52e-06,3.39e-06,1.99e-06

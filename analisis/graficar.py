@@ -6,7 +6,7 @@ import sys
 
 # Verificar el número correcto de argumentos
 if len(sys.argv) != 2:
-    print("Uso: python tu_script.py <archivo_csv>")
+    print("Uso: python graficar.py <archivo_csv>")
     sys.exit(1)
 
 # Configurar el parser de argumentos
@@ -41,9 +41,9 @@ for i, algoritmo in enumerate(algoritmos):
     ax.axhline(df[algoritmo].mean(), color='red', linestyle='dashed', linewidth=2, label='Media')
     ax.axhline(df[algoritmo].mean() + df[algoritmo].std(), color='orange', linestyle='dashed', linewidth=2, label='+1 Desviación Estándar')
     ax.axhline(df[algoritmo].mean() - df[algoritmo].std(), color='orange', linestyle='dashed', linewidth=2, label='-1 Desviación Estándar')
-    ax.set_title(f'{algoritmo}\nDesviación Estándar: {df[algoritmo].std():.2e}\nPromedio: {df[algoritmo].mean():.2e}')
+    ax.set_title(f'{algoritmo}\nDesviación Estándar: {df[algoritmo].std():.2e} (segundos)\nPromedio: {df[algoritmo].mean():.2e} (segundos)')
     ax.set_xlabel('Veces ejecutadas')
-    ax.set_ylabel('Tiempo de Ejecución')
+    ax.set_ylabel('Tiempo de Ejecución\n(segundos)')
     ax.legend()
     print(f'\n{algoritmo}\nDesviación Estándar: {df[algoritmo].std():.2e}\nPromedio: {df[algoritmo].mean():.2e}')
 
@@ -54,7 +54,7 @@ for algoritmo in algoritmos:
 
 ax_all_algorithms.set_title('Comparación de Todos los Algoritmos')
 ax_all_algorithms.set_xlabel('Veces ejecutadas')
-ax_all_algorithms.set_ylabel('Tiempo de Ejecución')
+ax_all_algorithms.set_ylabel('Tiempo de Ejecución\n(segundos)')
 ax_all_algorithms.legend()
 
 # Ajustar márgenes
@@ -66,4 +66,3 @@ ruta_guardado = os.path.join(carpeta_assets, nombre_archivo_imagen)
 
 # Guardar la imagen en la carpeta 'assets' con el nombre construido dinámicamente
 plt.savefig(ruta_guardado)
-
