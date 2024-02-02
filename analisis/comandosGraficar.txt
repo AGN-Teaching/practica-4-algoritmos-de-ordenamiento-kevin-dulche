@@ -1,0 +1,12 @@
+python3 graficar.py ./csv/5_tiempos.csv
+python3 graficar.py ./csv/10_tiempos.csv
+python3 graficar.py ./csv/50_tiempos.csv
+python3 graficar.py ./csv/100_tiempos.csv
+python3 graficar.py ./csv/500_tiempos.csv
+python3 graficar.py ./csv/1000_tiempos.csv
+python3 graficar.py ./csv/5000_tiempos.csv
+python3 graficar.py ./csv/10000_tiempos.csv
+python3 graficar.py ./csv/50000_tiempos.csv
+python3 graficar.py ./csv/100000_tiempos.csv
+python3 graficar.py ./csv/500000_tiempos.csv
+python3 graficar.py ./csv/1000000_tiempos.csv
